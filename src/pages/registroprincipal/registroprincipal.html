@@ -1,0 +1,208 @@
+<!--
+  Generated template for the RegistroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+    <ion-toolbar color='dark'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+      <ion-title>Publica tu anuncio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+
+
+<ion-content>
+
+
+ 
+
+
+
+
+<!--     <button  round ion-button  color='dark' (click)='cortar()' block> Crop</button> -->
+
+      <!--   <button  round ion-button  color='dark' (click)='subir()' block> Subir</button>
+ -->
+
+<img src="{{myphoto}}">
+     
+  <form  (ngSubmit)="publica(user)" >
+ 
+      <ion-list>
+
+
+      <div style='height: 10px' ></div>
+      <label  padding>Titulo de tu anuncio</label>
+      <ion-item  >
+            <ion-input   maxlength="50" name='titulo' id="titulo" type="text" required [(ngModel)] = "user.titulo"></ion-input>
+      </ion-item>
+
+<div style='height: 10px' ></div>
+
+        <label  padding>Descripcion</label>
+      <ion-item >
+            <ion-textarea rows='4'  maxlength="500" name='descripcion' id="descripcion" type="text" required [(ngModel)] = "user.descripcion"></ion-textarea>
+      </ion-item>
+<div style='height: 10px' ></div>
+
+            <label padding>Que tipo de servicio ofreces?</label>
+      
+
+      <ion-item>
+      <ion-select   name='categoria' id="categoria" [(ngModel)]="user.categoria" (ionChange)="cambia(user.categoria)">
+      <ion-option *ngFor="let item of categoriaslist" [value]="item.id"  >
+        
+         {{item.nombre}}
+
+      </ion-option>
+      </ion-select>
+
+      </ion-item>
+
+    
+
+      <div style='height: 10px' ></div>
+
+      <label *ngIf='user.categoria' padding>Cual es tu especialidad?</label>
+      <ion-item *ngIf='user.categoria'>
+
+
+
+ 
+        <ion-select   multiple=true  name='user.subcategoria' id="subcategoria" [(ngModel)]="user.subcategoria" >
+      <ion-option  *ngFor="let i of subcategoriaslist" [value]="i.id"  >
+        
+         {{i.nombre}}
+
+      </ion-option>
+      </ion-select> 
+ 
+
+    </ion-item>
+
+    <div style='height: 10px' ></div>
+
+          <label  *ngIf='user.descripcion' padding>Distrito</label>
+      
+      <ion-item *ngIf='user.descripcion'>
+
+      
+        <ion-select multiple=true  name='user.distrito' id="distrito" [(ngModel)]="user.distrito" >
+      <ion-option  *ngFor="let i of distrito" [value]="i.id"  >
+        
+         {{i.nombre}}
+
+      </ion-option>
+      </ion-select> 
+
+    </ion-item>
+
+
+      <div style='height: 10px' ></div>
+
+
+      <label  padding>Nombre y Apellidos</label>
+      <ion-item  >
+            <ion-input  maxlength="40" name='nombre' id="nombre" type="text" required [(ngModel)] = "user.nombre"></ion-input>
+      </ion-item>
+
+
+      <div style='height: 10px' ></div>
+
+
+
+
+      <div style='height: 10px' ></div>
+
+      <label   padding>Telefono</label>
+      <ion-item >
+            <ion-input  maxlength="9" name='telefono' id="telefono" type="text" required [(ngModel)] = "user.telefono"></ion-input>
+      </ion-item>
+<!-- 
+      <div style='height: 10px' ></div>
+
+      <label *ngIf='user.distrito' color='dark'>Whatsapp</label>
+      <ion-item *ngIf='user.distrito'>
+            <ion-input formControlName="whatsapp" maxlength="9" name='whatsapp' id="whatsapp" type="text" required [(ngModel)] = "user.whatsapp"></ion-input>
+      </ion-item> -->
+     
+      <div style='height: 10px' ></div>
+      <label *ngIf='user.distrito' padding>Correo Electronico</label>
+      <ion-item *ngIf='user.distrito'>
+            <ion-input    name='email' id="loginField" type="email" required [(ngModel)] = "user.email"></ion-input>
+      </ion-item>
+
+      </ion-list>
+
+      <div (click)='fotolibreria()' style="text-align: center;
+      background: #ffc680;
+      padding: 8em;
+      padding-top: 0px;
+      padding-bottom: 10px;
+     " class='animated flipInY'>
+      <img style='max-width: 59px;' src="https://cdn4.iconfinder.com/data/icons/devine_icons/Black/PNG/Appliaction%20and%20Programs/iPhoto.png">
+      <h6>Toma una foto</h6>
+      </div>
+
+
+
+
+      <ion-row padding style='text-align: center;    overflow-y: scroll;
+    min-width: 200px;
+    height: 250px;'>
+      <ion-col col-4 *ngFor="let libraryItem of library" (click)="subir(libraryItem)">
+        <div [ngClass]="{'check':libraryItem.seleccion}" ></div>
+      <img [src]="libraryItem.thumbnailURL | cdvphotolibrary">
+      </ion-col>
+
+
+
+    </ion-row>
+
+
+<!-- 
+      <button  round ion-button type="submit" color='dark' block [disabled]="!todo.valid">Publicar</button> -->
+    </form> 
+
+
+
+
+<!-- 
+ <ion-row padding>Si ya tienes cuenta ingresa <span [navPush]="loginPage" style='padding-left: 9px;text-decoration: underline;
+'> AQUI</span></ion-row>
+ -->
+<!-- 
+<button round ion-button  color='white' block  [navPush]="loginPage" >Ingresar</button> -->
+
+  <!--    <button round ion-button  color='white' block  [navPush]="registrosociaPage" >Conviertete en socia</button>-->
+
+
+
+
+
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    
+<button class="animated  fadeInUp" ion-button full round color="light" (click)='publica(user)'>
+
+Publicar
+
+     </button> 
+
+  </ion-toolbar>
+</ion-footer>
+
+
+<!-- <mytabs></mytabs>
+
+
+ -->

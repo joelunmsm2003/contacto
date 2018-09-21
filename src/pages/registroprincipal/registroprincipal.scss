@@ -1,0 +1,72 @@
+page-registroprincipal {
+
+h6{
+    
+      font-family: 'Comfortaa';
+}
+
+.check{
+
+    position: absolute;
+    top: 4px;
+    height: 120px;
+    width: 120px;
+    opacity: 0.8;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Feather-core-check-circle.svg/120px-Feather-core-check-circle.svg.png);
+    background-repeat: no-repeat;
+}
+
+.select-text{
+
+     font-family: 'Comfortaa' !important;
+     font-size: 14px;
+}
+
+ion-select{
+        max-width: 100%;
+}
+	 .content-md {
+    
+    //background:#bbcacd;
+    //background: url(http://estokealo.com:8000/static/registro.jpg) no-repeat center center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
+}
+
+
+
+
+	    .app-icon{
+        font-size:50px;
+        color: #000;
+      
+        text-align: center;
+        min-height: 180px;
+    }
+
+
+    ion-item{
+
+          padding: 1px;
+    margin: 44px;
+    margin-left: 0;
+
+      
+    }
+
+    label{
+
+            font-family: 'Comfortaa';
+                font-size: 13px;
+    }
+
+
+    
+.item-block{
+
+        border-radius: 5px;
+}
+  
+}
